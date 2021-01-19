@@ -22,7 +22,7 @@ export default function Dashboard ({selected, setSelected}) {
                 setArtworks(res.data)
             })
             .catch(console.log)
-        }, [])
+        }, [artworks])
 
         if(!context.token) {
             return <Login setToken={context.setToken} />
@@ -61,19 +61,15 @@ export default function Dashboard ({selected, setSelected}) {
             .then(result => console.log(result))
             .catch(error => console.log('error', error)); 
             
-            setArtworks(artworks.filter(artwork=>artwork._id!==selected._id))
+            setArtworks(artworks.filter(artwork=>artwork._id===selected._id))
             setSelected({})
         }
 
         const handleSelectionChange = (event) =>{
             const rowId = event.rowIds[0]
-            console.log("rowId", rowId)
             setSelection(event.rowIds[0])
             const foundArtwork = artworks.find(artwork=>artwork._id===rowId)
-            console.log("artworks", artworks)
-            console.log("artwork", foundArtwork)
             setSelected(foundArtwork)
-            console.log("selected", selected)
         }
 
     return(

@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import 'fontsource-roboto';
 
 import NavBar from "./components/navbar.js";
@@ -21,6 +21,7 @@ function App() {
         <Dashboard selected={selected} setSelected={setSelected} />
       </Route>
     </Switch>
+    <Route render={() => <Redirect to="/" />} />
   </main>
   </BrowserRouter>
   );
