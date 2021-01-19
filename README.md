@@ -8,3 +8,6 @@ The github repo is located at https://github.com/MAM-MERN/MAM-Client/
 
 To run locally: 
 ```npm start ```
+
+To test: 
+```npm test```
